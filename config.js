@@ -1,22 +1,21 @@
 var config = {
-    dataLogging: true,
+    dataLogging: process.env.SENSI_DATALOGGING,
     dataLoggingConnectionString: process.env.SENSI_MONITOR_MONGO_CONNECTION_STRING,
     dataLoggingCollectionName: process.env.SENSI_MONITOR_MONGO_COLLECTION,
     
-    emailAlerts: true,
+    emailAlerts: process.env.SENSI_EMAIL_ALERTS,
     emailAddressTo: process.env.SENSI_MONITOR_EMAIL_TO,
     emailAddressFrom: process.env.SENSI_MONITOR_EMAIL_FROM,
     
-    emailAlertOnRunningModeChanged: false,
-    emailAlertOnSystemModeChanged: true,
-    emailAlertOnSetpointChanged: true,
+    alertOnRunningModeChanged: process.env.SENSI_ALERT_RUNNING_MODE,
+    alertOnSystemModeChanged: process.env.SENSI_ALERT_SYSTEM_MODE,
+    alertOnSetpointChanged: process.env.SENSI_ALERT_SETPOINT,
     
-    omitScheduledSetpointAlerts: true,
-    
+    omitScheduledSetpointAlerts: process.env.SENSI_ALERT_OMIT_SCHEDULED,
     sensiUsername: process.env.SENSI_USERNAME,
     sensiPassword: process.env.SENSI_PASSWORD,
 
-    verbose: true
+    verbose: process.env.SENSI_VERBOSE 
 };
 
 module.exports = config;
